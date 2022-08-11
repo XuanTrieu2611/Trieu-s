@@ -1,0 +1,18 @@
+sudo apt-cache search rtklib
+sudo apt-get install rtklib
+
+#run script test:
+    /usr/bin/str2str -in ntrip://hatuan:0888304368@123.31.47.47:6089/tuyennk1 -out serial://ttyACM0:38400
+        NOTE:
+        hatuan: username
+        0888304368: password
+        123.31.47.47: IP
+        6089: PORT
+        tuyennk1: Mount Point
+#Autostart script when linux start:
+comand:    crontab -e
+Add line:
+    @reboot /usr/bin/str2str -in ntrip://hatuan:0888304368@123.31.47.47:6089/tuyennk1 -out serial://ttyACM0:38400
+script will run when linux startup
+    
+

@@ -1,0 +1,32 @@
+1.edit: sudo nano /etc/default/cpufrequtils
+After edit.
+$ cat /etc/default/cpufrequtils
+ENABLE=true
+MIN_SPEED=480000
+MAX_SPEED=1200000
+GOVERNOR=interactive
+
+
+2.reboot
+
+
+3.driver load
+sudo modprobe w1-sunxi(?)
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+
+
+4.check gpio
+
+$dmesg
+
+[   34.067409] W1_SUNXI: Added w1-gpio on GPIO-10
+
+
+I connected ds18b20 to gpio10 with pullup
+
+orangepi@orangepizero:~$ ls /sys/bus/w1/devices/
+28-021600b0a4ff  w1_bus_master1
+orangepi@orangepizero:~$ cat /sys/bus/w1/devices/28-021600b0a4ff/w1_slave
+ce 01 4b 46 7f ff 0c 10 97 : crc=97 YES
+ce 01 4b 46 7f ff 0c 10 97 t=28875
