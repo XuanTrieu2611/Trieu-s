@@ -49,7 +49,7 @@ def get_data():
             z = read_raw_data(Z_axis_H)
             break
         else:
-            sleep(0.01)
+            time.sleep(0.01)
             i+=1
             
     if x is None or y is None:
@@ -63,10 +63,7 @@ def get_data():
     return [x1, y1, z]
 
 chipid = bus.read_byte_data(Device_Address, 0x0d)
-print(chipid)
 Magnetometer_Init()     
-
-print (" Reading Heading Angle")
 def heading_angle():
     [x1, y1, z] = get_data()
     if x1 is None or y1 is None:
@@ -86,6 +83,7 @@ def heading_angle():
     elif(heading > 360.0):
         heading = heading - 360.0
 
-    print ("Heading Angle = %d°" %heading)
+    print ("Heading Angle = %dÂ°" %heading)
     #sleep(1)
     return heading
+print(heading_angle())
