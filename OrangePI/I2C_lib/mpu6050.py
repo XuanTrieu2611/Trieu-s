@@ -1,10 +1,12 @@
+
 import smbus
-import math
+
 class mpu6050:
+
     # Global Variables
     GRAVITIY_MS2 = 9.80665
-    address = 0x68
-    bus = 1
+    address = None
+    bus = None
 
     # Scale Modifiers
     ACCEL_SCALE_MODIFIER_2G = 16384.0
@@ -54,7 +56,7 @@ class mpu6050:
     GYRO_CONFIG = 0x1B
     MPU_CONFIG = 0x1A
 
-    def __init__(self, address, bus=1):
+    def __init__(self, address, bus=0):
         self.address = address
         self.bus = smbus.SMBus(bus)
         # Wake up the MPU-6050 since it starts in sleep mode
@@ -64,13 +66,16 @@ class mpu6050:
 
     def read_i2c_word(self, register):
         """Read two i2c registers and combine them.
+
         register -- the first register to read from.
         Returns the combined read results.
         """
         # Read the data from the registers
         high = self.bus.read_byte_data(self.address, register)
         low = self.bus.read_byte_data(self.address, register + 1)
+
         value = (high << 8) + low
+
         if (value >= 0x8000):
             return -((65535 - value) + 1)
         else:
@@ -80,6 +85,7 @@ class mpu6050:
 
     def get_temp(self):
         """Reads the temperature from the onboard temperature sensor of the MPU-6050.
+
         Returns the temperature in degrees Celcius.
         """
         raw_temp = self.read_i2c_word(self.TEMP_OUT0)
@@ -92,6 +98,7 @@ class mpu6050:
 
     def set_accel_range(self, accel_range):
         """Sets the range of the accelerometer to range.
+
         accel_range -- the range to set the accelerometer to. Using a
         pre-defined range is advised.
         """
@@ -103,6 +110,7 @@ class mpu6050:
 
     def read_accel_range(self, raw = False):
         """Reads the range the accelerometer is set to.
+
         If raw is True, it will return the raw value from the ACCEL_CONFIG
         register
         If raw is False, it will return an integer: -1, 2, 4, 8 or 16. When it
@@ -126,6 +134,7 @@ class mpu6050:
 
     def get_accel_data(self, g = False):
         """Gets and returns the X, Y and Z values from the accelerometer.
+
         If g is True, it will return the data in g
         If g is False, it will return the data in m/s^2
         Returns a dictionary with the measurement results.
@@ -162,9 +171,9 @@ class mpu6050:
             roll = math.atan2(y, x) * 57.3
             pitch = math.atan2((- x), math.sqrt(y * y + z * z))
             return [x,y,z,roll,pitch]
-
     def set_gyro_range(self, gyro_range):
         """Sets the range of the gyroscope to range.
+
         gyro_range -- the range to set the gyroscope to. Using a pre-defined
         range is advised.
         """
@@ -183,6 +192,7 @@ class mpu6050:
 
     def read_gyro_range(self, raw = False):
         """Reads the range the gyroscope is set to.
+
         If raw is True, it will return the raw value from the GYRO_CONFIG
         register.
         If raw is False, it will return 250, 500, 1000, 2000 or -1. If the
@@ -206,6 +216,7 @@ class mpu6050:
 
     def get_gyro_data(self):
         """Gets and returns the X, Y and Z values from the gyroscope.
+
         Returns the read values in a dictionary.
         """
         x = self.read_i2c_word(self.GYRO_XOUT0)
@@ -233,14 +244,19 @@ class mpu6050:
 
         return {'x': x, 'y': y, 'z': z}
 
+    def get_all_data(self):
+        """Reads and returns all the available data."""
+        temp = self.get_temp()
+        accel = self.get_accel_data()
+        gyro = self.get_gyro_data()
+
+        return [accel, gyro, temp]
+
 if __name__ == "__main__":
     mpu = mpu6050(0x68)
-    print(mpu.get_temp())
     accel_data = mpu.get_accel_data()
-    print(accel_data['x'])
-    print(accel_data['y'])
-    print(accel_data['z'])
-    gyro_data = mpu.get_gyro_data()
-    print(gyro_data['x'])
-    print(gyro_data['y'])
-    print(gyro_data['z'])
+    print(accel_data[0])
+    print(accel_data[1])
+    print(accel_data[2])
+    print(accel_data[3])
+    print(accel_data[4])
