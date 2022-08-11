@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>LeftThumbstick.qml</file>
+        <file>ButtonImage.qml</file>
+        <file>JoystickViewer.qml</file>
+        <file>xboxControllerLeftThumbstick.png</file>
+        <file>xboxControllerRightThumbstick.png</file>
+    </qresource>
+</RCC>
