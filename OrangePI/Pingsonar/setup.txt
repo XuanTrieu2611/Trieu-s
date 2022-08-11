@@ -1,0 +1,3 @@
+https://discuss.bluerobotics.com/t/echo-sounder-python-code-for-rasberry-3/10201/4
+https://discuss.bluerobotics.com/t/connecting-ping360-sonar-with-jetson-nano/10469/4
+https://discuss.bluerobotics.com/t/echo-sounder-python-code-for-rasberry-3/10201
