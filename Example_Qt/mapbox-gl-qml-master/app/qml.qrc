@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/location.qml</file>
+        <file>qml/MapboxMapGestureArea.qml</file>
+    </qresource>
+</RCC>

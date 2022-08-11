@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/map">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/a"/>
+    <qresource prefix="/aaa"/>
+    <qresource prefix="/asas"/>
+    <qresource prefix="/"/>
+</RCC>
