@@ -15,4 +15,5 @@
 - OS: ARMBIAN (base Debian).
 - Sensors and others: adafruit_ina219, adafruit_pca9658, hmc5883l, mpu6050.
 - GPS: Adrusimple RTK F9P
+![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/ae1afa8b8a20e29784f2e620e9e197f1f4c9152f/Screenshot%20from%202022-10-10%2023-05-22.png)
 
