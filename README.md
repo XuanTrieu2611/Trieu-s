@@ -18,6 +18,7 @@
 - GPS: Adrusimple RTK F9P
 #### Connect diagrams 
 ![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/ae1afa8b8a20e29784f2e620e9e197f1f4c9152f/Screenshot%20from%202022-10-10%2023-05-22.png)
+![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/18113c27b12cd3a76b41272c6c8625d2c0575aff/sensor_hardware.jpg)
 #### Comunication Method
 - User Datagram Protocol (UDP)
 - Hardware: mercury mwb201
