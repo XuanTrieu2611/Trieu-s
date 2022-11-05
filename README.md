@@ -10,7 +10,7 @@
 ![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/76b5e6b2dc1f9245d7cb537350cb05c6fdcc7bf4/Screenshot%20from%202022-08-06%2010-34-14.png)
 #### Display Map and GPS
 ![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/10d0ce48fde9b4bd77be0ce05574a0248aadd944/Screenshot%20from%202022-08-06%2013-29-16.png)
-![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/GroundStation.jpg)
+![App Screenshot](https://github.com/XuanTrieu2611/Trieu-s/blob/aa908b582ac6eac3b4382d0257a7728a0e6189a3/GroundStation.jpg)
 ### Control USV
 - Hardware: OrangePi PC plus.
 - OS: ARMBIAN (base Debian).
